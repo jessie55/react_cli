@@ -1,7 +1,7 @@
 # REACT CLI
 
 ## 开始
-----
+
 环境需求：
 
 * node >= 6.0.0
@@ -10,12 +10,7 @@
 拉取代码库，安装依赖：
 
 ```
-npm i
-```
-
-或者：
-```
-yarn
+npm i / yarn
 ```
 
 启动开发：
@@ -24,12 +19,16 @@ yarn
 npm start
 ```
 
-访问页面，例如 `http://localhost:3000`
-
 编译-预发：
 
 ```
 npm run build
+```
+
+eslint校验：
+
+```
+npm run line
 ```
 
 
@@ -38,82 +37,55 @@ npm run build
 ```tree
 ├── .babelrc
 ├── .eslintignore
-├── .eslintrc.json
+├── .env
+├── .eslintignore
+├── .eslintrc
 ├── .gitignore
-├── LICENSE
-├── _config.yml
-├── _gitattributes
-├── app
-│   ├── actions
-│   │   ├── common.js
-│   │   ├── house.js
-│   │   └── tabList.js
-│   ├── api
-│   │   ├── common.js
-│   │   ├── house.js
-│   │   └── index.js
-│   ├── base
-│   │   ├── header.js
-│   │   ├── index.js
-│   │   ├── nav.js
-│   │   └── tabList.js
-│   ├── client.js
-│   ├── config.js
-│   ├── history.js
-│   ├── iconfont
-│   │   ├── iconfont.eot
-│   │   ├── iconfont.svg
-│   │   ├── iconfont.ttf
-│   │   └── iconfont.woff
-│   ├── images
-│   │   ├── default.png
-│   │   ├── emoji
-│   │   ├── leftBg.jpg
-│   │   └── navcontrol.png
+├── config
+│   ├── global.env.js             全局环境变量
+│   ├── path.js                   项目路径
+│   ├── service.js                webpack service配置
+│   └── webpack.config.js         webpack配置
+├── dist                          编译打包，发布包
 │   ├── index.html
-│   ├── middleware
-│   │   ├── index.js
-│   │   ├── logger.js
-│   │   └── router.js
-│   ├── pages
+│   ├── css
+│   └── js
+├── src
+│   ├── index.html                入口
+│   ├── index.jsx
+│   ├── components                自定义组件
+│   │   ├── layout
 │   │   ├── chat
-│   │   │   └── index.js
-│   │   ├── login.js
-│   │   ├── menu
-│   │   │   ├── echarts.js
-│   │   │   ├── editor.js
+│   │   └── ...
+│   ├── containers                路由组件
+│   │   ├── demo
+│   │   └── ...
+│   ├── helpers
+│   │   └── service.js            request封装
+│   ├── redux
+│   │   ├── constants
 │   │   │   ├── index.js
-│   │   │   └── table.js
-│   │   ├── register.js
-│   │   └── welcome.js
-│   ├── reducers
-│   │   ├── common.js
-│   │   ├── house.js
-│   │   ├── index.js
-│   │   └── tabList.js
-│   ├── routes.js
-│   ├── store
-│   │   └── configureStore.js
-│   ├── style
-│   │   ├── RichEditor.less
-│   │   ├── base.less
-│   │   ├── im.less
-│   │   └── theme.less
-│   └── utils
-│       ├── ajax.js
-│       └── index.js
-├── mock
-│   ├── datas
-│   │   └── tableList.js
-│   ├── http.js
-│   ├── interfaceFilter.js
-│   └── interfaceMap.js
+│   │   │   ├── urls.js           接口url
+│   │   │   └── actionTypes.js    reducer type
+│   │   ├── store
+│   │   │   ├── index.js          store热更新
+│   │   │   ├── initialStore.js   初始数据
+│   │   │   └── configStore.js    store配置
+│   │   ├── actions               action注册
+│   │   │   ├── index.js
+│   │   │   └── ...
+│   │   ├── sagas                 数据请求
+│   │   │   ├── index.js
+│   │   │   └── ...
+│   │   └── reducer               state更新
+│   │       ├── index.js
+│   │       └── ...
+│   └── routers
+│       ├── RootRouter.js         路由配置
+│       ├── routers.js            路由-组件列表
+│       └── AsyncImport.js        动态加载方法
 ├── package-lock.json
 ├── package.json
-├── readme.md
-├── scripts
-│   ├── chatServer.js
-│   ├── webpack.base.config.js
-│   ├── webpack.dev.config.js
-│   └── webpack.prod.config.js
+├── postcss.config
+├── README.md
 └── yarn.lock

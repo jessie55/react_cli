@@ -1,5 +1,5 @@
 import { all, call, put, takeLatest } from 'redux-saga/effects';
-import request from 'helpers/client';
+import request from 'helpers/service';
 import { ActionTypes as types, urls } from 'constants/index';
 
 export function* getAllData() {

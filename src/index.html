@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title></title>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/mobile-detect/1.4.1/mobile-detect.min.js"></script>
+  </head>
+  <body>
+    <div id="appContainer"></div>
+  </body>
+  <script>
+    var md = new MobileDetect(window.navigator.userAgent)
+    var DeviceType = 'desktop'
+    if (md.mobile()) {
+      DeviceType = 'mobile'
+    } else if (md.tablet()){
+      DeviceType = 'tablet'
+    }
+  </script>
+</html>

@@ -3,15 +3,13 @@
  */
 
 import React, { Component } from 'react';
-import 'node_modules/react-grid-layout/css/styles.css';
-import 'node_modules/react-resizable/css/styles.css';
 
-import { WidthProvider, Responsive } from 'react-grid-layout';
 import _ from 'lodash';
-import './demo.scss';
-// import Charts from '../charts';
 
-const ResponsiveReactGridLayout = WidthProvider(Responsive);
+import FontIcon from '../fontIcon';
+import MyCard from '../card';
+
+import './demo.scss';
 
 
 class Card extends Component {
@@ -110,7 +108,6 @@ class Card extends Component {
         >
           x
         </span>
-        {/* <Charts /> */}
       </div>
     );
   }
@@ -119,16 +116,36 @@ class Card extends Component {
     return (
       <div>
         <span className="addBtn" onClick={this.onAddItem} >
+          <FontIcon
+            className="fa-flag"
+          />
           ADD ITEM
         </span>
-        <ResponsiveReactGridLayout
+        <MyCard
+          draggableHandle=".dy-card-head"
+          // onLayoutChange={(layout) => { console.log(layout); }}
+        >
+          <div key="1">
+            <h1>title1</h1>
+            <p>11111111</p>
+          </div>
+          <div>
+            <h1>title2</h1>
+            <p>2222222</p>
+          </div>
+          <div>
+            <h1>title3</h1>
+            <p>3333333</p>
+          </div>
+        </MyCard>
+        {/* <ResponsiveReactGridLayout
           onLayoutChange={this.onLayoutChange}
           onBreakpointChange={this.onBreakpointChange}
           draggableHandle=".dy-card-head"
           {...this.props}
         >
           {_.map(this.state.items, el => this.createElement(el))}
-        </ResponsiveReactGridLayout>
+        </ResponsiveReactGridLayout> */}
       </div>
     );
   }

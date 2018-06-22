@@ -56,9 +56,10 @@ react@16.4.0 + redux@4.0.0 + react-router@4.2.0 + webpack@4.10.2 + webpack-dev-s
 ├── src
 │   ├── index.html                入口
 │   ├── index.jsx
-│   ├── components                自定义组件
+│   ├── components                通用组件
 │   │   ├── layout
-│   │   ├── chat
+│   │   ├── chart
+│   │   ├── fontIcon
 │   │   └── ...
 │   ├── containers                路由组件
 │   │   ├── demo

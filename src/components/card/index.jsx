@@ -38,13 +38,15 @@ class Card extends React.Component {
     containerPadding: [15, 15]
   }
 
-  renderElement = (el, index) => {
-    console.log(el.props);
-
+  renderElement = (el) => {
+    const { index } = el.props;
     return (
       <CardItem
         key={index}
-        grid={el}
+        index={index}
+        grid={{
+          i: index
+        }}
       >
         { el }
       </CardItem>
@@ -53,6 +55,8 @@ class Card extends React.Component {
 
   render() {
     // console.log(this.props.children);
+
+    const doms = this.props.children.map((el) => this.renderElement(el));
 
     return (
       <ResponsiveGridLayout
@@ -66,7 +70,7 @@ class Card extends React.Component {
         isResizable={this.props.isResizable}
         onLayoutChange={this.props.onLayoutChange}
       >
-        { this.props.children.map((el, index) => this.renderElement(el, index)) }
+        { doms }
       </ResponsiveGridLayout>
     );
   }

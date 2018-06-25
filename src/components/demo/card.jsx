@@ -125,18 +125,21 @@ class Card extends Component {
           draggableHandle=".dy-card-head"
           // onLayoutChange={(layout) => { console.log(layout); }}
         >
-          <div key="1">
-            <h1>title1</h1>
-            <p>11111111</p>
-          </div>
-          <div>
-            <h1>title2</h1>
-            <p>2222222</p>
-          </div>
-          <div>
-            <h1>title3</h1>
-            <p>3333333</p>
-          </div>
+          <span index="1">
+            <span>title1</span>
+            <br />
+            <span>11111111</span>
+          </span>
+          <span index="2">
+            <span>title2</span>
+            <br />
+            <span>2222222</span>
+          </span>
+          <span index="3">
+            <span>title3</span>
+            <br />
+            <span>3333333</span>
+          </span>
         </MyCard>
         {/* <ResponsiveReactGridLayout
           onLayoutChange={this.onLayoutChange}

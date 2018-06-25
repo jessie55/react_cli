@@ -31,10 +31,13 @@ class CardItem extends React.Component {
     static: false
   }
 
+  componentWillMount = () => {
+  }
+
   render() {
     return (
       <div
-        key={this.props.grid.i}
+        key={this.props.index}
         data-grid={this.props.grid}
       >
         <div className="dy-card-head" />

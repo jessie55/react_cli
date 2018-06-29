@@ -1,79 +1,113 @@
 /*
  * card 拖动，缩放
  *
- * @props
- *   draggableCancel   string             禁止拖动元素选择器，如draggableCancel:'.MyNonDraggableAreaClassName'
- *   draggableHandle   string             处理拖动元素选择器
- *   margin            [number, number]   item与item之间的margin
- *   containerPadding  [number, number]   外部容器的padding
- *   rowHeight         number             行高（最小行高）可在breakpoints中调整
- *   isDraggable       boolean            是否可拖动
- *   isResizable       boolean            是否调整大小
- *
- *   onLayoutChange    func               layout改变时触发callback，返回参数layout
- *   onDragStart       func
- *   onDrag            func
- *   onDragStop        func
- *   onResizeStart     func
- *   onResize          func
- *   onResizeStop      func
- *   callback: (layout: Layout, oldItem: LayoutItem, newItem: LayoutItem, placeholder: LayoutItem, e: MouseEvent, element: HTMLElement)
+ * @props ./config/cardGrid
  *
  */
-
 import React from 'react';
+import PropTypes from 'prop-types';
+import styled from 'styled-components';
 import { Responsive, WidthProvider } from 'react-grid-layout';
 import 'react-grid-layout/css/styles.css';
 import 'react-resizable/css/styles.css';
-
 import CardItem from './item';
+import * as gridConfig from './config/cardGrid';
 import './card.scss';
 
+const findOrGenerateResponsiveLayout = Responsive.utils.findOrGenerateResponsiveLayout;
 const ResponsiveGridLayout = WidthProvider(Responsive);
+const GridItem = styled.div`
+  background: rgba(255, 255, 255, 0.4);
+`;
 
-
-class Card extends React.Component {
-  static defaultProps = {
-    margin: [15, 15],
-    containerPadding: [15, 15]
+class CardGrid extends React.Component {
+  static defaultProps = Object.assign({}, gridConfig)
+  constructor(props) {
+    super();
+    const { breakpoints = { lg: 1200 }, layouts } = props;
+    const currentLayout = findOrGenerateResponsiveLayout(layouts, breakpoints);
+    this.state = {
+      currentLayout,
+      layouts,
+      breakpoints
+    };
   }
 
-  renderElement = (el) => {
-    const { index } = el.props;
-    return (
-      <CardItem
-        key={index}
-        index={index}
-        grid={{
-          i: index
-        }}
-      >
-        { el }
-      </CardItem>
-    );
-  }
+  onLayoutChange = (currentLayout, allLayouts) => {
+    if (typeof this.props.onLayoutChange === 'function') {
+      this.props.onLayoutChange(currentLayout, allLayouts);
+    }
+    this.setState({ currentLayout });
+  };
 
   render() {
-    // console.log(this.props.children);
+    const {
+      cards,
+      autoLoad,
+      draggableHandle,
+      draggableCancel,
+      ...rest
+    } = this.props;
+    const { breakpoints, layouts, currentLayout } = this.state;
 
-    const doms = this.props.children.map((el) => this.renderElement(el));
+    // layouts必须要有lg的配置
+    if (!layouts.lg) {
+      return null;
+    }
 
     return (
       <ResponsiveGridLayout
-        className="layout"
-        draggableCancel={this.props.draggableCancel}
-        draggableHandle={this.props.draggableHandle}
-        margin={this.props.margin}
-        containerPadding={this.props.containerPadding}
-        rowHeight={this.props.rowHeight}
-        isDraggable={this.props.isDraggable}
-        isResizable={this.props.isResizable}
-        onLayoutChange={this.props.onLayoutChange}
+        {...rest}
+        layouts={layouts}
+        breakpoints={breakpoints}
+        onLayoutChange={this.onLayoutChange}
+        useCSSTransforms={false}
       >
-        { doms }
+        {
+          currentLayout.map(({ i }) => {
+            const card = cards[i];
+
+            if (card) {
+              const { cid = i, className = '' } = card;
+              return (
+                <GridItem key={cid} className={className}>
+                  <CardItem
+                    {...card}
+                    cid={cid}
+                  />
+                </GridItem>
+              );
+            }
+            return (
+              <GridItem key={i} />
+            );
+          })
+        }
       </ResponsiveGridLayout>
     );
   }
 }
 
-export default Card;
+CardGrid.propTypes = {
+  margin: PropTypes.array,
+  containerPadding: PropTypes.array,
+  isDraggable: PropTypes.bool,
+  isResizable: PropTypes.bool,
+
+  cards: PropTypes.object,
+  layouts: PropTypes.object,
+  onLayoutChange: PropTypes.func,
+  breakpoints: PropTypes.object,
+  onDeleteCard: PropTypes.func,
+  onUpdateCardConfig: PropTypes.func,
+  lazyLoad: PropTypes.bool,
+  autoLoad: PropTypes.number,
+  className: PropTypes.string,
+  propsFromPage: PropTypes.object,
+  rowHeight: PropTypes.number,
+  draggableHandle: PropTypes.string,
+  draggableCancel: PropTypes.string
+};
+
+export default CardGrid;
+

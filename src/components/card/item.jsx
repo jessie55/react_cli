@@ -19,29 +19,37 @@
  */
 
 import React from 'react';
+import { asyncComponent } from 'helpers/asyncComponent';
 import './card.scss';
 
 
 class CardItem extends React.Component {
-  static defaultProps = {
-    minW: 10,
-    minH: 10,
-    isDraggable: true,
-    isResizable: true,
-    static: false
+
+  constructor() {
+    super();
+    this.state = {
+      // isLoaded: false,
+      InnerComponent: null
+    };
   }
 
-  componentWillMount = () => {
+  componentDidMount = () => {
+    const { componentName } = this.props;
+    const InnerComponent = asyncComponent(() => import(`../${componentName}`));
+    this.setState({
+      InnerComponent
+    });
   }
 
   render() {
+    console.log(this.props);
+    const { InnerComponent } = this.state;
+
     return (
-      <div
-        key={this.props.index}
-        data-grid={this.props.grid}
-      >
-        <div className="dy-card-head" />
-        {this.props.children}
+      <div>
+        {InnerComponent ? (
+          <InnerComponent />
+        ) : null}
       </div>
     );
   }

@@ -76,12 +76,13 @@ const baseConfig = {
       node_modules: pathConfig.NODE_MODULES_PATH,
       SERVICE: pathConfig.SRC_PATH.join('service'),
       antd: 'antd',
-      constants: path.join(__dirname, '..', 'src/redux/constants'),
       actions: path.join(__dirname, '..', 'src/redux/actions'),
-      helpers: path.join(__dirname, '..', 'src/helpers'),
+      constants: path.join(__dirname, '..', 'src/redux/constants'),
       assets: path.join(__dirname, '..', 'src/assets'),
+      containers: path.join(__dirname, '..', 'src/containers'),
       components: path.join(__dirname, '..', 'src/components'),
-      containers: path.join(__dirname, '..', 'src/containers')
+      helpers: path.join(__dirname, '..', 'src/helpers'),
+      routers: path.join(__dirname, '..', 'src/routers')
     }
   },
   plugins: [

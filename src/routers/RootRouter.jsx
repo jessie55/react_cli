@@ -21,10 +21,10 @@ const RouteWithSubRoutes = route => (
 
 class RootRouter extends React.Component {
   initRoute = () => {
-    for (const keys in componentRouters) {
-      componentRouters[keys].map(item => {
+    for (const key in componentRouters) {
+      componentRouters[key].map(item => {
         routes.push({
-          path: `${rootPath}/${item.path}`,
+          path: `${rootPath}${item.path}`,
           exact: item.exact,
           component: asyncComponent(() => item.component)
         });

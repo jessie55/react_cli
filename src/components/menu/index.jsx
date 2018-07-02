@@ -2,6 +2,8 @@ import React from 'react';
 import { Menu, Icon } from 'antd';
 import 'antd/dist/antd.css';
 
+import * as componentRouters from 'routers/routers';
+
 class App extends React.Component {
   constructor() {
     super();
@@ -16,25 +18,29 @@ class App extends React.Component {
     });
     this.props.history.push(`${e.key}`);
   }
+
+  renderList = () => {
+    const list = [];
+    for (const key in componentRouters) {
+      const item = componentRouters[key][0];
+      list.push(
+        <Menu.Item key={item.path}>
+          <Icon type="appstore" />
+          {key}
+        </Menu.Item>
+      );
+    }
+    return list;
+  }
   render() {
+    const menuList = this.renderList();
     return (
       <Menu
         onClick={this.handleClick}
         selectedKeys={[this.state.current]}
         mode="horizontal"
       >
-        <Menu.Item key="/">
-          <Icon type="appstore" />
-          Index
-        </Menu.Item>
-        <Menu.Item key="/dashboard">
-          <Icon type="appstore" />
-          Dashboard
-        </Menu.Item>
-        <Menu.Item key="/mock">
-          <Icon type="appstore" />
-          Mock
-        </Menu.Item>
+        {menuList}
       </Menu>
     );
   }

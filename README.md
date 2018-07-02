@@ -65,6 +65,7 @@ react@16.4.0 + redux@4.0.0 + react-router@4.2.0 + webpack@4.10.2 + webpack-dev-s
 │   │   ├── demo
 │   │   └── ...
 │   ├── helpers
+│   │   ├── asyncComponent.js     动态加载组件
 │   │   └── service.js            request封装
 │   ├── redux
 │   │   ├── constants
@@ -85,9 +86,8 @@ react@16.4.0 + redux@4.0.0 + react-router@4.2.0 + webpack@4.10.2 + webpack-dev-s
 │   │       ├── index.js
 │   │       └── ...
 │   └── routers
-│       ├── RootRouter.js         路由配置
-│       ├── routers.js            路由-组件列表
-│       └── AsyncImport.js        动态加载方法
+│       ├── RootRouter.js         加载路由
+│       └── routers.js            路由-组件配置
 ├── package-lock.json
 ├── package.json
 ├── postcss.config

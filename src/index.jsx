@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom';
 import { AppContainer } from 'react-hot-loader';
 import { Provider } from 'react-redux';
 import { HashRouter } from 'react-router-dom';
+import 'assets/scss/reset.scss';
 import RootRouter from './routers/RootRouter';
 import store from './redux/store';
 

@@ -1,25 +1,28 @@
-export const home = [
+export const index = [
   {
-    path: 'home',
+    path: '',
     exact: true,
-    component: import('../components/Home')
-  },
-  {
-    path: 'home/detail/:id',
-    exact: true,
-    component: import('../components/Detail')
+    component: import('../containers/index')
   }
 ];
 
-export const home2 = [
+export const dashboard = [
   {
-    path: 'home',
+    path: 'dashboard',
     exact: true,
-    component: import('../components/Home')
+    component: import('../containers/dashboard')
   },
   {
-    path: 'home/detail/:id',
+    path: 'dashboard/:id',
     exact: true,
-    component: import('../components/Detail')
+    component: import('../containers/dashboard')
+  }
+];
+
+export const mock = [
+  {
+    path: 'mock',
+    exact: true,
+    component: import('../containers/mock')
   }
 ];

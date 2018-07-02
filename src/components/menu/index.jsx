@@ -24,10 +24,16 @@ class App extends React.Component {
         mode="horizontal"
       >
         <Menu.Item key="/">
-          <Icon type="mail" />Navigation One
+          <Icon type="appstore" />
+          Index
+        </Menu.Item>
+        <Menu.Item key="/dashboard">
+          <Icon type="appstore" />
+          Dashboard
         </Menu.Item>
         <Menu.Item key="/mock">
-          <Icon type="appstore" />Navigation Two
+          <Icon type="appstore" />
+          Mock
         </Menu.Item>
       </Menu>
     );

@@ -10,10 +10,10 @@ import React from 'react';
 import './layout.scss';
 
 const Header = props => {
-  console.log(props);
+  const { title } = props;
   return (
     <div className="header">
-      Demo - Header
+      {title}
     </div>
   );
 };

@@ -1,30 +1,13 @@
 import React, { Fragment } from 'react';
 import { connect } from 'react-redux';
 import { compose } from 'redux';
-import { Route, Switch, withRouter, Redirect } from 'react-router';
-
-// import asyncImport from './AsyncImport'
-// import * as componentRouters from './routers'
-
-// import Header from '../components/layout/Header'
-// import Footer from '../components/layout/Footer'
-
+import { Route, Switch, withRouter } from 'react-router';
+import { asyncComponent } from 'helpers/asyncComponent';
 import Menu from 'components/menu';
-import Index from 'containers/index';
-import Mock from 'containers/mock';
+import * as componentRouters from './routers';
 
-const routes = [
-  {
-    path: '/',
-    exact: true,
-    component: Index
-  },
-  {
-    path: '/mock',
-    exact: true,
-    component: Mock
-  }
-];
+const rootPath = '';
+const routes = [];
 
 const RouteWithSubRoutes = route => (
   <Route
@@ -37,10 +20,20 @@ const RouteWithSubRoutes = route => (
 );
 
 class RootRouter extends React.Component {
+  initRoute = () => {
+    for (const keys in componentRouters) {
+      componentRouters[keys].map(item => {
+        routes.push({
+          path: `${rootPath}/${item.path}`,
+          exact: item.exact,
+          component: asyncComponent(() => item.component)
+        });
+      });
+    }
+  }
 
   render() {
-    // const userInfo = this.props.userInfo
-    // !userInfo.jwt ? null : this.initRoute()
+    this.initRoute();
     return (
       <Fragment>
         <Menu
@@ -57,10 +50,6 @@ class RootRouter extends React.Component {
               />
             ))
           }
-          <Redirect to="/mock" />
-          {/* {
-            !userInfo ? <Redirect to={`${prefix}/login`}/> : null
-          } */}
         </Switch>
       </Fragment>
     );

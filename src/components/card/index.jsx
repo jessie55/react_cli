@@ -26,6 +26,7 @@ class CardGrid extends React.Component {
     super();
     const { breakpoints = { lg: 1200 }, layouts } = props;
     const currentLayout = findOrGenerateResponsiveLayout(layouts, breakpoints);
+
     this.state = {
       currentLayout,
       layouts,

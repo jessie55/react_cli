@@ -1,0 +1,16 @@
+
+
+.react-grid-layout {
+  .react-grid-item {
+    &:not(.react-grid-placeholder) {
+      border: none;
+      box-shadow: 0 0 5px #d2d2d2;
+      -webkit-box-shadow: 0 0 5px #d2d2d2;
+      background: #fff;
+    }
+    &.react-grid-placeholder {
+      border: 2px dashed #333;
+      background: #fff;
+    }
+  }
+}

@@ -21,8 +21,8 @@
  *
  */
 
-export const margin = [15, 15];
-export const containerPadding = [15, 15];
+export const margin = [10, 10];
+export const containerPadding = [10, 10];
 export const isDraggable = true;
 export const isResizable = true;
 export const draggableCancel = '.dy-card-head';

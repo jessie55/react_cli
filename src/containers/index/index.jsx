@@ -4,11 +4,11 @@
 
 import React, { Component } from 'react';
 
-import FontIcon from '../fontIcon';
-import CardGrid from '../card';
+import FontIcon from 'components/fontIcon';
+import CardGrid from 'components/card';
 // import data from './data.json';
 
-import './demo.scss';
+import './index.scss';
 
 class Card extends Component {
 
@@ -25,11 +25,21 @@ class Card extends Component {
   render() {
     const layouts = {
       lg: [{
-        w: 1,
-        h: 1,
+        w: 2,
+        h: 2,
         x: 0,
         y: 0,
         i: 'key1',
+        minW: 1,
+        minH: 1,
+        moved: false,
+        static: false
+      }, {
+        w: 1,
+        h: 1,
+        x: 2,
+        y: 0,
+        i: 'key2',
         minW: 1,
         minH: 1,
         moved: false,
@@ -39,6 +49,10 @@ class Card extends Component {
     const components = [{
       title: 'DEMO',
       cid: 'key1',
+      componentName: 'table'
+    }, {
+      title: 'DEMO',
+      cid: 'key2',
       componentName: 'table'
     }];
 

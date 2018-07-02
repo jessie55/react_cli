@@ -79,8 +79,9 @@ const baseConfig = {
       constants: path.join(__dirname, '..', 'src/redux/constants'),
       actions: path.join(__dirname, '..', 'src/redux/actions'),
       helpers: path.join(__dirname, '..', 'src/helpers'),
-      assets: path.join(__dirname, '..', 'assets'),
-      components: path.join(__dirname, '..', 'src/components')
+      assets: path.join(__dirname, '..', 'src/assets'),
+      components: path.join(__dirname, '..', 'src/components'),
+      containers: path.join(__dirname, '..', 'src/containers')
     }
   },
   plugins: [

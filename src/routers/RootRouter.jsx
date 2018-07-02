@@ -9,15 +9,15 @@ import { Route, Switch, withRouter, Redirect } from 'react-router';
 // import Header from '../components/layout/Header'
 // import Footer from '../components/layout/Footer'
 
-import Menu from '../components/menu';
-import Card from '../components/demo/card';
-import Mock from '../components/demo/mock';
+import Menu from 'components/menu';
+import Index from 'containers/index';
+import Mock from 'containers/mock';
 
 const routes = [
   {
     path: '/',
     exact: true,
-    component: Card
+    component: Index
   },
   {
     path: '/mock',

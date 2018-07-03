@@ -33,11 +33,14 @@ export const layouts = {
 };
 
 export const contents = [{
-  title: 'DEMO',
   cid: 'key1',
-  componentName: 'table'
+  type: 'CARD1'
 }, {
-  title: 'DEMO',
+  name: 'name2',
   cid: 'key2',
-  componentName: 'table'
+  type: 'CARD2'
+}, {
+  name: 'name3',
+  cid: 'key3',
+  type: 'CARD3'
 }];

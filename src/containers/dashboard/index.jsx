@@ -36,7 +36,7 @@ class Card extends Component {
         <CardGrid
           cards={cards}
           layouts={layouts}
-          onLayoutChange={layout => { console.log('current layout', layout); }}
+          // onLayoutChange={layout => { console.log('current layout', layout); }}
           // onDeleteCard={this.onDeleteCard}
           // onUpdateCardConfig={this.onUpdateCardConfig}
           // dashboardCard={dashboardCard}

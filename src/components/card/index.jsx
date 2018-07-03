@@ -39,14 +39,13 @@ class CardGrid extends React.Component {
       this.props.onLayoutChange(currentLayout, allLayouts);
     }
     this.setState({ currentLayout });
+    console.log('allLayouts: ', allLayouts);
   };
 
   render() {
     const {
       cards,
       autoLoad,
-      draggableHandle,
-      draggableCancel,
       ...rest
     } = this.props;
     const { breakpoints, layouts, currentLayout } = this.state;
@@ -61,9 +60,7 @@ class CardGrid extends React.Component {
         {...rest}
         layouts={layouts}
         breakpoints={breakpoints}
-        draggableHandle={draggableHandle}
         onLayoutChange={this.onLayoutChange}
-        useCSSTransforms={false}
       >
         {
           currentLayout.map(({ i }) => {

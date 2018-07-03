@@ -35,6 +35,8 @@ npm run line
 
 react@16.4.0 + redux@4.0.0 + react-router@4.2.0 + webpack@4.10.2 + webpack-dev-server@3.1.4 + fetch@2.2.1 + sass@4.9.0 + antd@3.6.2 + react-grid-layout@0.16.6
 
+使用uuid/v4生成卡片key值
+
 ## 项目结构
 
 ```tree

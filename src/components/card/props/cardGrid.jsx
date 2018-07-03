@@ -31,3 +31,4 @@ export const containerPadding = [10, 10];
 export const rowHeight = 360;
 export const isDraggable = true;
 export const isResizable = true;
+export const useCSSTransforms = true;

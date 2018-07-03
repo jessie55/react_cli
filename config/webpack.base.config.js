@@ -80,6 +80,7 @@ const baseConfig = {
       constants: path.join(__dirname, '..', 'src/redux/constants'),
       assets: path.join(__dirname, '..', 'src/assets'),
       containers: path.join(__dirname, '..', 'src/containers'),
+      cards: path.join(__dirname, '..', 'src/cards'),
       components: path.join(__dirname, '..', 'src/components'),
       helpers: path.join(__dirname, '..', 'src/helpers'),
       routers: path.join(__dirname, '..', 'src/routers')

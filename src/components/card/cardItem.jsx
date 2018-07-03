@@ -7,6 +7,7 @@
 
 import React from 'react';
 import { asyncComponent } from 'helpers/asyncComponent';
+import configs from 'cards/mapping';
 import CardHead from './cardHead';
 
 import './card.scss';
@@ -22,21 +23,28 @@ class CardItem extends React.Component {
   }
 
   componentDidMount = () => {
-    const { componentName } = this.props;
-    const InnerComponent = asyncComponent(() => import(`../${componentName}`));
+    const { type } = this.props;
+    const InnerComponent = asyncComponent(() => import(`cards/${type}`));
     this.setState({
       InnerComponent
     });
   }
 
+
   render() {
-    const { title } = this.props;
+    const { type } = this.props;
+    const cardInfo = configs[type].cardInfo;
+    const { name = cardInfo.name } = this.props;
+
     const { InnerComponent } = this.state;
 
     return (
       <div className="cardWrapper">
         <div className="grid-card-top">
-          <CardHead title={title} />
+          <CardHead
+            title={name}
+            type={type}
+          />
         </div>
         <div className="grid-card-body">
           {InnerComponent ? (

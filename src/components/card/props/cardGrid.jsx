@@ -21,13 +21,13 @@
  *
  */
 
-export const margin = [10, 10];
-export const containerPadding = [10, 10];
-export const isDraggable = true;
-export const isResizable = true;
-export const draggableCancel = '.dy-card-head';
-export const draggableHandle = '.ant-input';
-
 export const breakpoints = { lg: 1200 };
 export const cols = { lg: 3 };
+
+export const draggableCancel = '.ant-input';
+export const draggableHandle = '.dy-card-head';
+export const margin = [10, 10];
+export const containerPadding = [10, 10];
 export const rowHeight = 360;
+export const isDraggable = true;
+export const isResizable = true;

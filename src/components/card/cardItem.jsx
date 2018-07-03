@@ -2,29 +2,17 @@
  * card inner element
  *
  * @props
- *   grid = {
- *     i              string
- *     x              number
- *     y              number
- *     w              number
- *     h              number
- *     minW           number
- *     maxW           number
- *     minH           number
- *     maxH           number
- *     isDraggable    boolean
- *     isResizable    boolean
- *     static         boolean    如果true, 相当于`isDraggable: false, isResizable: false`
- *   }
+ *
  */
 
 import React from 'react';
 import { asyncComponent } from 'helpers/asyncComponent';
+import CardHead from './cardHead';
+
 import './card.scss';
 
 
 class CardItem extends React.Component {
-
   constructor() {
     super();
     this.state = {
@@ -42,12 +30,19 @@ class CardItem extends React.Component {
   }
 
   render() {
+    const { title } = this.props;
     const { InnerComponent } = this.state;
+
     return (
-      <div>
-        {InnerComponent ? (
-          <InnerComponent />
-        ) : null}
+      <div className="cardWrapper">
+        <div className="grid-card-top">
+          <CardHead title={title} />
+        </div>
+        <div className="grid-card-body">
+          {InnerComponent ? (
+            <InnerComponent />
+          ) : null}
+        </div>
       </div>
     );
   }

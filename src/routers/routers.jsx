@@ -26,3 +26,4 @@ export const mock = [
     component: import('../containers/mock')
   }
 ];
+

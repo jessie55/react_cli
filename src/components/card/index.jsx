@@ -1,7 +1,7 @@
 /*
  * card 拖动，缩放
  *
- * @props ./config/cardGrid
+ * @props ./property/cardGrid
  *
  */
 import React from 'react';
@@ -10,8 +10,8 @@ import styled from 'styled-components';
 import { Responsive, WidthProvider } from 'react-grid-layout';
 import 'react-grid-layout/css/styles.css';
 import 'react-resizable/css/styles.css';
-import CardItem from './item';
-import * as gridConfig from './config/cardGrid';
+import CardItem from './cardItem';
+import * as gridConfig from './props/cardGrid';
 import './card.scss';
 
 const findOrGenerateResponsiveLayout = Responsive.utils.findOrGenerateResponsiveLayout;
@@ -61,6 +61,7 @@ class CardGrid extends React.Component {
         {...rest}
         layouts={layouts}
         breakpoints={breakpoints}
+        draggableHandle={draggableHandle}
         onLayoutChange={this.onLayoutChange}
         useCSSTransforms={false}
       >
@@ -101,10 +102,6 @@ CardGrid.propTypes = {
   breakpoints: PropTypes.object,
   onDeleteCard: PropTypes.func,
   onUpdateCardConfig: PropTypes.func,
-  lazyLoad: PropTypes.bool,
-  autoLoad: PropTypes.number,
-  className: PropTypes.string,
-  propsFromPage: PropTypes.object,
   rowHeight: PropTypes.number,
   draggableHandle: PropTypes.string,
   draggableCancel: PropTypes.string

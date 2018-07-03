@@ -6,8 +6,7 @@ import React, { Component } from 'react';
 
 import FontIcon from 'components/fontIcon';
 import CardGrid from 'components/card';
-import data from './data.json';
-
+import * as data from './data';
 import './dashboard.scss';
 
 class Card extends Component {
@@ -23,18 +22,8 @@ class Card extends Component {
   }
 
   render() {
-    const layouts = data;
-    const components = [{
-      title: 'DEMO',
-      cid: 'key1',
-      componentName: 'table'
-    }, {
-      title: 'DEMO',
-      cid: 'key2',
-      componentName: 'table'
-    }];
-
-    const cards = this.formatData(components);
+    const { layouts, contents } = data;
+    const cards = this.formatData(contents);
 
     return (
       <div>

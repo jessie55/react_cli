@@ -1,8 +1,8 @@
 /*
  *  代理配置更改后，需要重启服务器才能生效
- * local： 本地数据
- * proxy： 代理
- * mock：  mock数据
+ *  local： 本地数据
+ *  proxy： 代理
+ *  mock：  mock数据
  */
 
 // local:本地数据|proxy:代理数据请求(代理服务会默认启动)

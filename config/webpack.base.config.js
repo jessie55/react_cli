@@ -13,7 +13,6 @@ const globalEnv = require('./global.env');
 const baseConfig = {
   entry: {
     main: [
-      'react-hot-loader/patch',
       'babel-polyfill',
       `${pathConfig.SRC_PATH}/index`
     ],
@@ -39,13 +38,44 @@ const baseConfig = {
       test: /\.css$/,
       use: [
         MiniCssExtractPlugin.loader,
-        'css-loader',
-        'postcss-loader'
+        {
+          loader: 'css-loader?modules=false',
+          options: {
+            importLoaders: 1,
+            minimize: true
+          }
+        },
+        {
+          loader: 'postcss-loader',
+          options: {
+            config: {
+              path: path.resolve(__dirname, './postcss.config.js')
+            }
+          }
+        }
       ]
     },
     {
       test: /\.scss$/,
-      use: [MiniCssExtractPlugin.loader, 'css-loader', 'sass-loader', 'postcss-loader']
+      use: [
+        MiniCssExtractPlugin.loader,
+        {
+          loader: 'css-loader?modules=false',
+          options: {
+            importLoaders: 1,
+            minimize: true
+          }
+        },
+        {
+          loader: 'postcss-loader',
+          options: {
+            config: {
+              path: path.resolve(__dirname, './postcss.config.js')
+            }
+          }
+        },
+        'sass-loader'
+      ]
     },
     {
       test: /\.(gif|jpg|png)\??.*$/,

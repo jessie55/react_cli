@@ -18,12 +18,20 @@ npm i / yarn
 ```
 npm start
 ```
+端口：3000
 
 编译-预发：
 
 ```
 npm run build
 ```
+
+开启编译后服务：
+
+```
+npm run check
+```
+端口：4000
 
 eslint校验：
 

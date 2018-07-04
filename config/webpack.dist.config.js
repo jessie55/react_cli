@@ -3,14 +3,14 @@
  *
  */
 const webpack = require('webpack');
+const pathConfig = require('./path');
 const config = require('./webpack.base.config');
-
 const CleanWebpackPlugin = require('clean-webpack-plugin');
 
 config.mode = 'production';
-config.plugins = (config.plugins || []).concat([
+config.plugins = ([
   new CleanWebpackPlugin(['dist'], {
-    root: 'd:/webpack/demo1/',
+    root: pathConfig.ROOT,
     verbose: true,
     dry: false
   }),
@@ -19,6 +19,11 @@ config.plugins = (config.plugins || []).concat([
       NODE_ENV: JSON.stringify('production')
     }
   })
-]);
+]).concat(config.plugins || []);
+
+config.devServer = {
+  contentBase: pathConfig.DIST_PATH,
+  port: '4000'
+};
 
 module.exports = config;

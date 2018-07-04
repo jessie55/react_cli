@@ -8,7 +8,8 @@
   "plugins": [
     ["transform-object-rest-spread", { "useBuiltIns": true }],
     "transform-class-properties",
-    ["transform-decorators-legacy"]
+    ["transform-decorators-legacy"],
+    ["import", {"libraryName": "antd", "style": "css"}]
   ],
   "env": {
     "test": {

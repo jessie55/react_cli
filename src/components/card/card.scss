@@ -4,7 +4,6 @@
   .react-grid-item {
     &:not(.react-grid-placeholder) {
       box-shadow: 0 0 5px #d2d2d2;
-      -webkit-box-shadow: 0 2px 5px #d2d2d2;
       background: #fff;
     }
     &.react-grid-placeholder {

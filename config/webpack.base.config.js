@@ -39,12 +39,7 @@ const baseConfig = {
       test: /\.css$/,
       use: [
         MiniCssExtractPlugin.loader,
-        {
-          loader: 'css-loader',
-          options: {
-            importLoader: 1
-          }
-        },
+        'css-loader',
         'postcss-loader'
       ]
     },

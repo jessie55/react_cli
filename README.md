@@ -59,6 +59,9 @@ react@16.4.0 + redux@4.0.0 + react-router@4.2.0 + webpack@4.10.2 + webpack-dev-s
 │   ├── index.html                入口
 │   ├── index.jsx
 │   ├── cards                     现有卡片模块
+│   │   ├── routers.js
+│   │   ├── mapping.js
+│   │   └── ...
 │   ├── components                通用组件
 │   │   ├── layout
 │   │   ├── chart

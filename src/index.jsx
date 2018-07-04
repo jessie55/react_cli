@@ -4,11 +4,9 @@ import { AppContainer } from 'react-hot-loader';
 import { Provider } from 'react-redux';
 import { HashRouter } from 'react-router-dom';
 import 'assets/scss/reset.scss';
+import 'antd/dist/antd.css';
 import RootRouter from './routers/RootRouter';
 import store from './redux/store';
-
-// require('babel-core/register')
-// require('babel-polyfill')
 
 const hotRender = NextRouter => {
   ReactDOM.render(

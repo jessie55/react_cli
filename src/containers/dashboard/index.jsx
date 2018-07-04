@@ -31,7 +31,7 @@ class Card extends Component {
           <FontIcon
             className="fa-flag"
           />
-          ADD ITEM
+          add
         </span>
         <CardGrid
           cards={cards}

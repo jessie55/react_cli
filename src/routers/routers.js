@@ -27,3 +27,11 @@ export const mock = [
   }
 ];
 
+export const charts = [
+  {
+    path: '/charts',
+    exact: true,
+    component: import('../containers/charts')
+  }
+];
+

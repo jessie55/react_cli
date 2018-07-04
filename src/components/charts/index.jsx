@@ -62,7 +62,6 @@ class PackagedECharts extends Component {
       },
       ...restProps
     } = this.props;
-    console.log(option);
     return (
       <ReactEcharts
         ref={chartRef}

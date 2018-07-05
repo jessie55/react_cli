@@ -6,9 +6,11 @@ import SimpleLineChart from 'components/charts/lib/simple-line-chart';
 export default class Charts extends PureComponent {
   constructor() {
     super();
-    this.ref0 = React.createRef();
-    this.ref1 = React.createRef();
-    this.ref2 = React.createRef();
+    this.chartInstance0 = null;
+    this.chartInstance1 = null;
+    this.state = {
+      lineChartOption: this.getProps()
+    };
   }
 
   getOption = () => ({
@@ -88,15 +90,21 @@ export default class Charts extends PureComponent {
       ['Cheese Cocoa', 86.4, 65.2, 82.5],
       ['Walnut Brownie', 72.4, 53.9, 39.1]
     ],
-    seriesLayoutBy: 'column'
+    seriesLayoutBy: 'row'
   })
 
   getAllInstance = () => {
-    console.log(this.ref0, this.ref1, this.ref2); // eslint-disable-line    
-    const instance0 = this.ref0.current.getEchartsInstance();
-    const instance1 = this.ref1.current.getEchartsInstance();
-    const instance2 = this.ref2.current.getEchartsInstance();
-    console.log(instance0, instance1, instance2); // eslint-disable-line
+    console.log(this.chartInstance0, this.chartInstance1); // eslint-disable-line
+  }
+
+  setLineChartOption = () => {
+    const option = {
+      ...this.state.lineChartOption,
+      seriesLayoutBy: 'column'
+    };
+    this.setState({
+      lineChartOption: option
+    });
   }
 
   render() {
@@ -105,7 +113,7 @@ export default class Charts extends PureComponent {
         <div className="parent">
           <span>直接使用 ReactEcharts</span>
           <ReactEcharts
-            ref={this.ref0}
+            ref={e => { this.chartInstance0 = e; }}
             option={this.getOption()}
             style={{ height: '350px', width: '50%' }}
             className="react_for_echarts0"
@@ -114,17 +122,17 @@ export default class Charts extends PureComponent {
         <div className="parent">
           <span>使用封装的 PackagedECharts</span>
           <PackagedECharts
-            chartRef={this.ref1}
+            ref={e => { this.chartInstance1 = e ? e.chartInstance : null; }}
             option={this.getOption()}
             style={{ height: '300px', width: '80%' }}
             className="react_for_echarts1"
           />
         </div>
         <div className="parent">
+          <button onClick={this.setLineChartOption} > set chart option </button>
           <span>使用封装的 SimpleLineChart</span>
           <SimpleLineChart
-            chartRef={this.ref2}
-            {...this.getProps()}
+            {...this.state.lineChartOption}
             style={{ height: '350px', width: '90%' }}
             className="react_for_echarts2"
           />

@@ -25,9 +25,13 @@ import getDefaultOption from './config/defaultOption';
 import './charts.scss';
 
 class PackagedECharts extends Component {
+  constructor(props) {
+    super(props);
+    this.chartInstance = null;
+  }
+
   render() {
     const {
-      chartRef,
       option = getDefaultOption(),
       style,
       className,
@@ -64,7 +68,7 @@ class PackagedECharts extends Component {
     } = this.props;
     return (
       <ReactEcharts
-        ref={chartRef}
+        ref={e => { this.chartInstance = e; }}
         option={option}
         // echarts={echarts}
         notMerge={notMerge}

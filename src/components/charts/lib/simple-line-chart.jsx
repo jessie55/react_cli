@@ -28,13 +28,18 @@ import commonOptions from './common-options';
  * @extends Component
  */
 class SimpleLineChart extends Component {
+  constructor(props) {
+    super(props);
+    this.chartInstance = null;
+  }
+
   getSeries = (data, seriesLayoutBy) => {
     const result = [];
     const item = { type: 'line', seriesLayoutBy };
     for (let i = 0; i < (seriesLayoutBy === 'column' ? data[0].length - 1 : data.length - 1); i++) {
       result.push(item);
     }
-    console.log('calcuted series:', result);
+    console.log('calcuted series:', result); // eslint-disable-line
     return result;
   }
 
@@ -84,13 +89,14 @@ class SimpleLineChart extends Component {
   }
 
   render() {
-    const { chartRef, style, className } = this.props;
+    const { style, className } = this.props;
     const option = this.getChartOption();
-    console.log('chart option:', option);
+    console.log('chart option:', option); // eslint-disable-line
     return (
       <ReactEchartsCore
-        ref={chartRef}
+        ref={e => { this.chartInstance = e; }}
         option={option}
+        notMerge
         echarts={echarts}
         style={style}
         className={className}
@@ -100,7 +106,6 @@ class SimpleLineChart extends Component {
 }
 
 SimpleLineChart.propTypes = {
-  chartRef: PropTypes.object,
   titleText: PropTypes.string,
   subTitleText: PropTypes.string,
   hasTooltip: PropTypes.bool,

@@ -13,12 +13,11 @@
 npm i / yarn
 ```
 
-启动开发：
+启动开发(port:4000)：
 
 ```
 npm start
 ```
-端口：3000
 
 编译-预发：
 
@@ -26,12 +25,11 @@ npm start
 npm run build
 ```
 
-开启编译后服务：
+开启编译后服务(port:4000)：
 
 ```
 npm run check
 ```
-端口：4000
 
 eslint校验：
 

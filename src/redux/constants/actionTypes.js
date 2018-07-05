@@ -13,3 +13,8 @@ function createRequestTypes(base) {
 
 export const REQUEST_DEMO = createRequestTypes('REQUEST_DEMO');
 export const CHANGE_MENU = 'CHANGE_MENU';
+
+export const GET_DASHBOARDS = 'GET_DASHBOARDS';
+export const GET_CONTENTS = 'GET_CONTENTS';
+export const SET_LAST_DASHBOARD = 'SET_LAST_DASHBOARD';
+export const UPDATE_LAYOUTS = 'UPDATE_LAYOUTS';

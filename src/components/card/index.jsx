@@ -39,7 +39,6 @@ class CardGrid extends React.Component {
       this.props.onLayoutChange(currentLayout, allLayouts);
     }
     this.setState({ currentLayout });
-    console.log('allLayouts: ', allLayouts);
   };
 
   render() {

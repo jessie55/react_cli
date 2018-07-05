@@ -5,9 +5,3 @@ export function changeMenu() {
     type: types.CHANGE_MENU
   };
 }
-
-export function changeMenu2() {
-  return {
-    type: types.CHANGE_MENU
-  };
-}

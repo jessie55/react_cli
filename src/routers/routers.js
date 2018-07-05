@@ -13,7 +13,7 @@ export const dashboard = [
     component: import('../containers/dashboard')
   },
   {
-    path: '/dashboard/:id',
+    path: '/dashboard/:key',
     exact: true,
     component: import('../containers/dashboard')
   }

@@ -24,6 +24,22 @@ export const dashboards = [{
       'static': false
     }]
   }
+}, {
+  name: 'second',
+  key: 'abcdefg',
+  layouts: {
+    'lg': [{
+      'w': 2,
+      'h': 2,
+      'x': 0,
+      'y': 0,
+      'i': 'key2-1',
+      'minW': 1,
+      'minH': 1,
+      'moved': false,
+      'static': false
+    }]
+  }
 }];
 
 export const contents = [{

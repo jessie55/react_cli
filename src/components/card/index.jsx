@@ -34,6 +34,18 @@ class CardGrid extends React.Component {
     };
   }
 
+  componentWillReceiveProps(nextProps) {
+    if (nextProps.version !== this.props.version) {
+      const { breakpoints = { lg: 1200 }, layouts } = nextProps;
+      const currentLayout = findOrGenerateResponsiveLayout(layouts, breakpoints);
+      this.setState({
+        currentLayout,
+        layouts,
+        breakpoints
+      });
+    }
+  }
+
   onLayoutChange = (currentLayout, allLayouts) => {
     if (typeof this.props.onLayoutChange === 'function') {
       this.props.onLayoutChange(currentLayout, allLayouts);

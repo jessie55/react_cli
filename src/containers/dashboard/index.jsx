@@ -27,13 +27,6 @@ class Card extends Component {
     // this.props.updateLayouts();
   }
 
-  getCurrentDashKey = () => {
-    let key = this.props.match.params.key;
-    const { lastDashboard = '', dashboards } = this.props.dashboard;
-    key = !key ? (!lastDashboard ? dashboards[0].key || '' : lastDashboard) : key;
-    return key;
-  }
-
   // array => key-val对
   formatData = (dashboards, currentCards) => {
     const dashboardList = {};
@@ -60,17 +53,21 @@ class Card extends Component {
     };
   }
 
+  switchDashboard = key => {
+    this.props.setLastDashboard(key);
+    this.props.history.replace(`/dashboard/${key}`);
+  }
+
   render() {
     const { dashboards, currentCards, lastDashboard } = this.props.dashboard;
-
     if (dashboards.length === 0 || currentCards.length === 0) {
       return (
         <div>空空，空空</div>
       );
     }
+
     const { dashboardList, cards } = this.formatData(dashboards, currentCards);
     const layouts = dashboardList[lastDashboard].layouts;
-
     return (
       <div>
         <span className="addBtn">
@@ -82,7 +79,7 @@ class Card extends Component {
             dashboards.map((item) => (
               <div
                 key={item.key}
-                onClick={() => { this.props.history.replace(`/dashboard/${item.key}`); }}
+                onClick={() => { this.switchDashboard(item.key); }}
               >
                 {item.name}
               </div>
@@ -90,6 +87,7 @@ class Card extends Component {
           }
         </div>
         <CardGrid
+          version={lastDashboard}
           cards={cards}
           layouts={layouts}
           onLayoutChange={this.onLayoutChange}

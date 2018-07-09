@@ -5,14 +5,59 @@
   line-height: 38px;
   text-align: center;
   margin: 10px;
-  background-color: #FF7701;
-  border: 1px solid #FF7701;
+  background-color: #FC6C48;
+  border: 1px solid #FC6C48;
   color: #fff;
   font-size: 14px;
   cursor: pointer;
   &:hover {
-    color: #FF7701;
+    color: #FC6C48;
     background-color: #fff;
+  }
+}
+
+.btnBar {
+  display: inline-block;
+  font-size: 0;
+  border: 1px solid #FC6C48;
+  margin: 10px;
+  padding: 0;
+  border-radius: 6px;
+  overflow: hidden;
+  li {
+    display: inline-block;
+    min-width: 100px;
+    height: 40px;
+    line-height: 40px;
+    text-align: center;
+    color: #FC6C48;
+    font-size: 14px;
+    border-right: 1px solid #FC6C48;
+    background-color: #fff;
+    vertical-align: middle;
+    cursor: pointer;
+    &:last-child {
+      border-right: none;
+      &:after {
+        content: "+"
+      }
+      &:hover {
+        &:after {
+          content: "创建"
+        }
+      }
+    }
+    &:hover, &.active {
+      color: #fff;
+      background-color: #FC6C48;
+    }
+
+  }
+}
+
+.createDashboardModal {
+  .dashboardName {
+    width: 300px;
   }
 }
 

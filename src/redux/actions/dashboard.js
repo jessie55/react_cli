@@ -22,8 +22,16 @@ export function setLastDashboard(data) {
 }
 
 
-export function updateLayouts() {
+export function updateLayouts(data) {
   return {
-    type: types.UPDATE_LAYOUTS
+    type: types.UPDATE_LAYOUTS,
+    payload: data
+  };
+}
+
+export function createDashboard(data) {
+  return {
+    type: types.CREATE_DASHBOARD,
+    payload: data
   };
 }

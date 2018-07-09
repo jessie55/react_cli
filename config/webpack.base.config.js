@@ -9,6 +9,7 @@ const pathConfig = require('./path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const globalEnv = require('./global.env');
+const theme = require('../theme');
 
 const baseConfig = {
   entry: {
@@ -39,7 +40,7 @@ const baseConfig = {
       use: [
         MiniCssExtractPlugin.loader,
         {
-          loader: 'css-loader?modules=false',
+          loader: 'css-loader',
           options: {
             importLoaders: 1,
             minimize: true
@@ -60,7 +61,7 @@ const baseConfig = {
       use: [
         MiniCssExtractPlugin.loader,
         {
-          loader: 'css-loader?modules=false',
+          loader: 'css-loader',
           options: {
             importLoaders: 1,
             minimize: true
@@ -75,6 +76,25 @@ const baseConfig = {
           }
         },
         'sass-loader'
+      ]
+    },
+    {
+      test: /\.less$/,
+      use: [
+        MiniCssExtractPlugin.loader,
+        {
+          loader: 'css-loader',
+          options: {
+            importLoaders: 1,
+            minimize: true
+          }
+        },
+        {
+          loader: 'less-loader',
+          options: {
+            modifyVars: theme
+          }
+        }
       ]
     },
     {

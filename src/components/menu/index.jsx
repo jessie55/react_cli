@@ -1,6 +1,5 @@
 import React from 'react';
 import { Menu, Icon } from 'antd';
-
 import * as componentRouters from 'routers/routers';
 
 class App extends React.Component {
@@ -22,12 +21,14 @@ class App extends React.Component {
     const list = [];
     for (const key in componentRouters) {
       const item = componentRouters[key][0];
-      list.push(
-        <Menu.Item key={item.path}>
-          <Icon type="appstore" />
-          {key}
-        </Menu.Item>
-      );
+      if (item.menu) {
+        list.push(
+          <Menu.Item key={item.path}>
+            <Icon type="appstore" />
+            {key}
+          </Menu.Item>
+        );
+      }
     }
     return list;
   }

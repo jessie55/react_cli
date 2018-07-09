@@ -1,5 +1,5 @@
 export const dashboards = [{
-  name: 'default',
+  name: '第一个看板',
   key: '123456abc',
   layouts: {
     'lg': [{
@@ -25,7 +25,7 @@ export const dashboards = [{
     }]
   }
 }, {
-  name: 'second',
+  name: '第二个看板',
   key: 'abcdefg',
   layouts: {
     'lg': [{

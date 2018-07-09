@@ -5,7 +5,7 @@
 const pathConfig = require('./path');
 const service = require('./service');
 const config = require('./webpack.base.config');
-const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const theme = require('../theme');
 
 config.mode = 'development';
 config.devServer = {
@@ -24,10 +24,16 @@ config.devServer = {
 
 config.module.rules[3] = {
   test: /\.scss$/,
-  use: ['css-hot-loader'].concat([MiniCssExtractPlugin.loader, 'css-loader', 'sass-loader', 'postcss-loader'])
+  use: ['css-hot-loader', 'style-loader', 'css-loader', 'sass-loader', 'postcss-loader']
 };
 
 config.module.rules[4] = {
+  test: /\.less$/,
+  use: ['style-loader', 'css-loader', `less-loader?{"modifyVars":${JSON.stringify(theme)}}`
+  ]
+};
+
+config.module.rules[5] = {
   test: /\.(gif|jpg|png)\??.*$/,
   loader: 'url-loader',
   options: {
@@ -36,7 +42,7 @@ config.module.rules[4] = {
   }
 };
 
-config.module.rules[5] = {
+config.module.rules[6] = {
   test: /\.(woff|svg|eot|ttf)\??.*$/,
   loader: 'url-loader',
   options: {

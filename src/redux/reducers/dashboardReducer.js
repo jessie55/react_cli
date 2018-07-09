@@ -1,3 +1,4 @@
+import clone from 'clone';
 import { ActionTypes as types } from '../constants';
 
 const initialState = {
@@ -7,6 +8,7 @@ const initialState = {
 };
 
 const demo = (state = initialState, action) => {
+  let newState;
   switch (action.type) {
     case types.GET_DASHBOARDS:
       return Object.assign({}, state, {
@@ -22,9 +24,12 @@ const demo = (state = initialState, action) => {
         lastDashboard: action.payload
       });
     case types.UPDATE_LAYOUTS:
-      return Object.assign({}, state, {
-        data: 1
-      });
+      newState = clone(state);
+      return newState;
+    case types.CREATE_DASHBOARD:
+      newState = clone(state);
+      newState.dashboards.push(action.payload);
+      return newState;
     default:
       return state;
   }

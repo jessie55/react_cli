@@ -1,18 +1,25 @@
-.addBtn {
-  display: block;
+.addCardBtn {
+  float: right;
   width: 100px;
   height: 40px;
   line-height: 38px;
   text-align: center;
-  margin: 10px;
-  background-color: #FC6C48;
-  border: 1px solid #FC6C48;
-  color: #fff;
+  color: #FC6C48;
   font-size: 14px;
+  margin: 10px;
+  background-color: #fff;
+  border: 1px solid #FC6C48;
+  border-radius: 6px;
   cursor: pointer;
+  &:after {
+    content: "+"
+  }
   &:hover {
-    color: #FC6C48;
-    background-color: #fff;
+    color: #fff;
+    background-color: #FC6C48;
+    &:after {
+      content: "添加卡片"
+    }
   }
 }
 
@@ -43,7 +50,7 @@
       }
       &:hover {
         &:after {
-          content: "创建"
+          content: "创建看板"
         }
       }
     }
@@ -58,6 +65,20 @@
 .createDashboardModal {
   .dashboardName {
     width: 300px;
+  }
+}
+
+.createCardModal {
+  .ant-btn {
+    margin: 10px;
+    &:focus {
+      color: rgba(0, 0, 0, 0.65);
+      border-color: #d9d9d9;
+    }
+    &.cur {
+      color: #ff9373;
+      border-color: #ff9373;
+    }
   }
 }
 

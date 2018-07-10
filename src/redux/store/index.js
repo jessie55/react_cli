@@ -12,13 +12,14 @@ store.subscribe(throttle(() => {
 
 }, 1000));
 
+let sagaTask = sagaMiddleware.run(rootSaga);
+
 if (module.hot) {
   module.hot.accept('../reducers/', () => {
-    store.replaceReducer(require('../reducers/index').default);
+    store.replaceReducer(require('../reducers/').default);
   });
   module.hot.accept('../sagas/', () => {
     const getNewSagas = require('../sagas/').default;
-    let sagaTask = sagaMiddleware.run(rootSaga);
     sagaTask.cancel();
     sagaTask.done.then(() => {
       sagaTask = sagaMiddleware.run(getNewSagas);

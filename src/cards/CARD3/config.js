@@ -1,10 +1,7 @@
-const name = 'CARD1';
+const name = 'CARD3';
 const componentType = name;
 
 export default {
-  componentType,
-  cardInfo: {
-    name: '测试1'
-  }
-
+  name,
+  componentType
 };

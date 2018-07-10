@@ -22,7 +22,6 @@ const RouteWithSubRoutes = route => (
 class RootRouter extends React.Component {
   initRoute = () => {
     for (const key in componentRouters) {
-      console.log(componentRouters[key]);
       componentRouters[key].map(item => {
         routes.push({
           path: `${rootPath}${item.path}`,

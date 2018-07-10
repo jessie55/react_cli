@@ -33,8 +33,7 @@ class CardItem extends React.Component {
 
   render() {
     const { type } = this.props;
-    const cardInfo = configs[type].cardInfo;
-    const { name = cardInfo.name } = this.props;
+    const { name = configs[type].name } = this.props;
 
     const { InnerComponent } = this.state;
 

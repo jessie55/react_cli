@@ -38,5 +38,6 @@ export const registerMocks = (allMocks) => {
   allMocks.filter(mockItem => mockItem.active)
     .forEach(mockItem => { registerMock(mockItem); });
 
+  // 没有匹配上的路由将会调用原本的fetch方法
   FetchMock.spy();
 };

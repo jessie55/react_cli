@@ -39,7 +39,6 @@ class SimpleLineChart extends Component {
     for (let i = 0; i < (seriesLayoutBy === 'column' ? data[0].length - 1 : data.length - 1); i++) {
       result.push(item);
     }
-    console.log('calcuted series:', result); // eslint-disable-line
     return result;
   }
 
@@ -91,7 +90,6 @@ class SimpleLineChart extends Component {
   render() {
     const { style, className } = this.props;
     const option = this.getChartOption();
-    console.log('chart option:', option); // eslint-disable-line
     return (
       <ReactEchartsCore
         ref={e => { this.chartInstance = e; }}

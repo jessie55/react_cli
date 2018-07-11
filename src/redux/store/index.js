@@ -6,7 +6,6 @@ import initialStore from './initialStore';
 
 const sagaMiddleware = createSagaMiddleware();
 export const store = configStore(initialStore, sagaMiddleware, process.env.NODE_ENV);
-
 // 监听store变化
 store.subscribe(throttle(() => {
 

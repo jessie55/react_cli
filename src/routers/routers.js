@@ -26,6 +26,7 @@ export const mock = [
   {
     path: '/mock',
     exact: true,
+    menu: true,
     component: import('../containers/mock')
   }
 ];

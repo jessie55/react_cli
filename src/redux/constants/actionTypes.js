@@ -12,6 +12,7 @@ function createRequestTypes(base) {
 }
 
 export const REQUEST_DEMO = createRequestTypes('REQUEST_DEMO');
+export const REQUEST_DEMO3 = createRequestTypes('REQUEST_DEMO3');
 export const CHANGE_MENU = 'CHANGE_MENU';
 
 export const GET_DASHBOARDS = 'GET_DASHBOARDS';

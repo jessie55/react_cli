@@ -1,2 +1,2 @@
-export * from './demo';
+export * from './mockDemo';
 export * from './dashboard';

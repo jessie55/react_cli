@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "start": "cross-env NODE_ENV='development' webpack-dev-server --config config/webpack.dev.config.js",
-    "start:mock": "cross-env WITH_MOCK=true npm start",
+    "start:with-mock": "cross-env NODE_ENV='development' WITH_MOCK='true' webpack-dev-server --config config/webpack.dev.config.js",
     "build": "cross-env NODE_ENV='production' webpack --progress --config config/webpack.dist.config.js",
     "check": "cross-env NODE_ENV='production' webpack-dev-server --config config/webpack.dist.config.js",
     "lint": "eslint --ext .jsx,.js src",

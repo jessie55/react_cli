@@ -172,7 +172,8 @@ const baseConfig = {
     }),
     new webpack.DefinePlugin({
       'process.env': Object.assign({
-        'NODE_ENV': JSON.stringify(process.env.NODE_ENV)
+        'NODE_ENV': JSON.stringify(process.env.NODE_ENV),
+        'WITH_MOCK': JSON.stringify(process.env.WITH_MOCK)
       }, globalEnv)
     })
   ]

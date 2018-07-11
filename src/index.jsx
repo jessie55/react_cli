@@ -7,6 +7,7 @@ import 'assets/scss/reset.scss';
 // import 'antd/dist/antd.less';
 import RootRouter from './routers/RootRouter';
 import store from './redux/store';
+import registeAllMocks from './mock';
 
 const hotRender = NextRouter => {
   ReactDOM.render(
@@ -29,3 +30,5 @@ if (module.hot) {
     hotRender(nextRouter);
   });
 }
+
+registeAllMocks();

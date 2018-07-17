@@ -40,4 +40,13 @@ export const charts = [
   }
 ];
 
+export const industrySpreadCharts = [
+  {
+    path: '/industry-spread-charts',
+    exact: true,
+    menu: true,
+    component: import('../containers/industrySpreadChart')
+  }
+];
+
 export cards from 'cards/routers';

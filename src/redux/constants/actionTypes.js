@@ -15,6 +15,9 @@ export const REQUEST_DEMO = createRequestTypes('REQUEST_DEMO');
 export const REQUEST_DEMO3 = createRequestTypes('REQUEST_DEMO3');
 export const CHANGE_MENU = 'CHANGE_MENU';
 
+export const INDUSTRY_SPREAD_CHART = createRequestTypes('INDUSTRY_SPREAD_CHART');
+export const CLEAR_INDUSTRY_SPREAD_CHART = 'CLEAR_INDUSTRY_SPREAD_CHART';
+
 export const GET_DASHBOARDS = 'GET_DASHBOARDS';
 export const GET_CONTENTS = 'GET_CONTENTS';
 export const SET_LAST_DASHBOARD = 'SET_LAST_DASHBOARD';

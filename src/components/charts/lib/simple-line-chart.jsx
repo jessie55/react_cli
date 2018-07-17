@@ -12,7 +12,25 @@ import 'echarts/lib/component/title';
 import 'echarts/lib/component/toolbox';
 import 'echarts/lib/component/legend';
 
-import commonOptions from './common-options';
+const getCommonOptions = () => ({
+  toolbox: {
+    show: false,
+    feature: {
+      dataZoom: {
+        yAxisIndex: 'none'
+      },
+      restore: {},
+      saveAsImage: {}
+    }
+  },
+
+  grid: {
+    left: '3%',
+    right: '4%',
+    bottom: '3%',
+    containLabel: true
+  }
+});
 
 // import './charts.scss';
 
@@ -52,7 +70,7 @@ class SimpleLineChart extends Component {
       data,
       seriesLayoutBy = 'column'
     } = this.props;
-    const { toolbox, grid } = commonOptions;
+    const { toolbox, grid } = getCommonOptions();
     const series = this.getSeries(data, seriesLayoutBy);
     return {
       title: {

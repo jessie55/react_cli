@@ -10,14 +10,12 @@ const buildDimensions = (responseData) => {
       dimensions.push(`${stdLevel}_${debtIndustry}`);
     });
   });
-  console.log('dimensions', dimensions);
   return dimensions;
 };
 
 const buildDataSet = (responseData) => {
   const dimensions = buildDimensions(responseData);
   const groupedData = groupBy(responseData, 'record_date');
-  console.log('groupedData', groupedData);
   const source = Object.keys(groupedData)
     .map(key => {
       const column = [...Array(dimensions.length)];
@@ -29,7 +27,6 @@ const buildDataSet = (responseData) => {
       });
       return column;
     });
-  console.log('source', source);
   return {
     dimensions,
     source

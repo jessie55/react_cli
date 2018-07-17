@@ -31,7 +31,6 @@ class MyIndustrySpreadChart extends Component {
       chartOption2,
       chartOption3
     } = this.props.industrySpreadChart;
-    console.log(chartOption);
     return (
       <div style={{ padding: 10 }}>
         {!(chartOption && chartOption.dataset) && <Button type="primary" onClick={this.getIndustrySpread}>load data</Button>}

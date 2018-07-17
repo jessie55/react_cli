@@ -16,7 +16,7 @@ export const registerMock = ({
   msg = 'ok'
 }) => {
   const response = Mock.mock({
-    data: responseData,
+    data: responseData || {},
     msg
   });
   switch (method) {

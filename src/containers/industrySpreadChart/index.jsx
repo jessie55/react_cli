@@ -11,6 +11,8 @@ class MyIndustrySpreadChart extends Component {
   constructor(props) {
     super(props);
     this.industrySpreadChart = null;
+    this.industrySpreadChart2 = null;
+    this.industrySpreadChart3 = null;
   }
 
   componentDidMount = () => {
@@ -38,22 +40,25 @@ class MyIndustrySpreadChart extends Component {
         <ReactEcharts
           ref={e => { this.industrySpreadChart = e; }}
           notMerge
+          // showLoading
           option={chartOption}
           style={{ height: '350px', width: '100%' }}
           className="react_for_echarts0"
         />
 
         <ReactEcharts
-          ref={e => { this.industrySpreadChart = e; }}
+          ref={e => { this.industrySpreadChart2 = e; }}
           notMerge
+          // showLoading
           option={chartOption2}
           style={{ height: '350px', width: '100%' }}
           className="react_for_echarts0"
         />
 
         <ReactEcharts
-          ref={e => { this.industrySpreadChart = e; }}
+          ref={e => { this.industrySpreadChart3 = e; }}
           notMerge
+          // showLoading
           option={chartOption3}
           style={{ height: '350px', width: '100%' }}
           className="react_for_echarts0"

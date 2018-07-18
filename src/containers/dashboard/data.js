@@ -22,6 +22,16 @@ export const dashboards = [{
       'minH': 1,
       'moved': false,
       'static': false
+    }, {
+      'w': 1,
+      'h': 1,
+      'x': 2,
+      'y': 2,
+      'i': '111111-3',
+      'minW': 1,
+      'minH': 1,
+      'moved': false,
+      'static': false
     }]
   }
 }, {
@@ -49,4 +59,9 @@ export const contents = [{
   name: 'name2',
   cid: '111111-2',
   type: 'CARD2'
-}];
+}, {
+  name: 'name3',
+  cid: '111111-3',
+  type: 'industrySpreadCard'
+}
+];

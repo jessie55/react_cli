@@ -13,5 +13,10 @@ export default [
     path: '/card3',
     exact: true,
     component: import('./CARD3')
+  },
+  {
+    path: '/industry-spread-card',
+    exact: true,
+    component: import('./industrySpreadCard')
   }
 ];

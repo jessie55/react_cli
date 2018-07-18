@@ -33,6 +33,40 @@ class Card extends Component {
     // this.props.updateLayouts();
   }
 
+  // 设置公共筛选框
+  setFilters = cards => {
+    let filterList = [];
+    cards.map(item => {
+      filterList = filterList.concat(cardsList[item.type].filters || []);
+    });
+
+    console.log(filterList);
+    console.log(this.duplicates(filterList, 'param'));
+  }
+
+  // 提取公共筛选项
+  //   duplicates = (arr, key) => {
+  //     const reset = arr.map(a => a[key]).reduce((o, k, i) => [o[k] = i, o][1], {});
+
+  //     console.log(11111);
+  //     console.log(reset);
+
+  // Object.keys(reset).map(k => {
+  //     // 此处的 k 就是刚才 { a值: 最后一次在 arr 中出现的位置 } 里的 a 值
+  //     // 构造一个新的 object
+  //     let o = {a: k};
+  //     // reset[k] 就是取出 k 所对应的 a 值最后一次在 arr 中出现的位置
+  //     // arr[reset[k]] 就是 k 所对应的 a 值最后一次在 arr 中出现时所处的对象
+  //     // 对 arr[reset[k]] 遍历一次键
+  //     Object.keys(arr[reset[k]])
+  //           // 把 arr[reset[k]] 上的键值挨个复制到 o 上
+  //           // Ps. 突然发现刚才没有在遍历时跳过 a 的值，此处修改一下，原答案里就不改了。
+  //         .forEach(key => o[key] = key === 'a' ? o[key] : arr[reset[k]][key]);
+  //     // 返回构造好的新对象
+  //     return o;
+  // })
+  //   }
+
   updateState = (key, val) => {
     this.setState({
       [key]: val
@@ -86,11 +120,6 @@ class Card extends Component {
         y: Infinity
       });
     }
-
-
-    console.log(currentLayout);
-
-
   }
 
   dashModalOk = () => {
@@ -169,6 +198,7 @@ class Card extends Component {
     return list;
   }
 
+
   render() {
     const { dashboards, currentCards, lastDashboard } = this.props.dashboard;
 
@@ -178,8 +208,10 @@ class Card extends Component {
       );
     }
 
+
     const { dashboardList, cards } = this.formatData(dashboards, currentCards);
     const layouts = dashboardList[lastDashboard] ? dashboardList[lastDashboard].layouts : null;
+    this.setFilters(currentCards);
 
     return (
       <div>

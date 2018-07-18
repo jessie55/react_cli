@@ -3,5 +3,10 @@ const componentType = name;
 
 export default {
   name,
-  componentType
+  componentType,
+  filters: [{
+    type: 'input',
+    name: '输入框',
+    param: 'value'
+  }]
 };

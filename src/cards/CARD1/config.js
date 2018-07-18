@@ -6,5 +6,14 @@ export default {
   componentType,
   headConfig: {
     hideHead: true
-  }
+  },
+  filters: [{
+    type: 'input',
+    name: '输入框',
+    param: 'value'
+  }, {
+    type: 'input',
+    name: '输入框2',
+    param: 'value2'
+  }]
 };
